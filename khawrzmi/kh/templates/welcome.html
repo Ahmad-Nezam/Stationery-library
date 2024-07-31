@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <title>Khawrzmi</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+
+
+</head>
+<body>
+    
+<header>
+ <nav class="navigation">
+ <a href="index.html">Home Page</a> 
+ <a href="contact">About us</a>
+ <a href="{% url 'login_reg' %}">Login</a> 
+</nav>
+
+   
+</header>
+
+
+
+
+
+<section class="main" id="home">
+
+<div>
+
+<h2>welcome to our libary <br><span>Al Khawrzmi</span></h2>
+
+<a href="why.html" class="main-btn">Read more</a>
+
+<div class="social-icons">
+    <a href="https://www.facebook.com/profile.php?id=61554866414060"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com/ardicompany42"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/ardicompany42/"><i class="fab fa-instagram"></i></a>
+    <a href="conwh.html"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+    </div>
+
+</section>
+
+
+
+<section class="cards" id="services">
+
+<h2 class="title">services</h2>
+ <div class="content">
+<div class="card" onclick="movetoanother()">
+    <div class="icon">
+        <i class="fas fa-pen"></i>
+    </div>
+    <div class="info" >
+        <h3>Stationery</h3>
+  
+    </div>
+</div>
+
+<script>
+    function movetoanother(){
+        window.location.href = "{% url 'Stationery' %}";
+    }
+</script>
+
+
+ <div class="card" onclick="move3()">
+    <div class="icon">
+        <i class="fa fa-gamepad"></i>
+    </div>
+    <div class="info">
+        <h3>Toys</h3>
+
+    </div>
+</div>
+    </div>
+<script>
+function move3(){
+    window.location.href="{% url 'toys' %}";
+}
+
+</script>
+</section>
+
+
+
+
+<section class="card-contact" id="contact">
+
+<h2 class="title">Contact us</h2> 
+<div class="content">
+    <div class="card" onclick="movee()" >
+        <div class="icon">
+            <i class="fas fa-phone"></i>
+        </div>
+        <div class="info" >
+            <h3>Phone</h3>
+          <p>02-2345024</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="icon">
+            <i class="fas fa-envelope"></i>
+        </div>
+        <div class="info">
+            <h3>Email</h3>
+           <strong>ahmad628go@gmail.com</strong>
+        </div>
+    </div>
+    </div>
+
+
+    <script>
+        function movee(){
+            window.location.href = "conwh.html";
+        }
+    </script>
+
+
+    </section>
+
+
+
+
+
+
+
+
+    
+<footer class="footer">
+
+<p class="footer-title">Copyrights @<span>Khawrzmi</span></p>
+<a href="#home" class="scroll-up"><i class="fas fa-arrow-up"></i></a>
+<div class="social-icons">
+    <a href="https://www.facebook.com/profile.php?id=61554866414060"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com/ardicompany42"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/ardicompany42/"><i class="fab fa-instagram"></i></a>
+    <a href="conwh.html"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+</footer>
+
+
+</body>
+</html>
