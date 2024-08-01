@@ -45,4 +45,12 @@ class product(models.Model):
     price = models.FloatField()
     image = models.ImageField()
     num_product = models.IntegerField() 
-    
+
+
+def create_user(request , pw_hash):
+    First_name = request['First_name']
+    Last_name = request['Last_name']
+    email = request['email']
+    password = request['password']
+    conf_password = request['conf_password']
+    return user.objects.create(First_name = First_name , Last_name = Last_name , email = email ,  conf_password = pw_hash , password = pw_hash)

@@ -3,9 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toys</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+
+    <title>toys</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    
+<header>
+ <nav class="navigation">
+ <a href="/main">Home Page</a> 
+ <a href="{% url 'logout' %}">Logout</a> 
+</nav>
+</header>
+
+<div class="content">
+
+<div class="card">
+  <img class="card-img-top" src="{% static 'css/toy 5.jpg' %}" alt="toy" >
+  <h1>toys</h1>
+  <p class="price">$19.99</p>
+  <p><button>Add to Cart</button></p>
+</div>
+
+
+
+<div class="card">
+  <img class="card-img-top" src="{% static 'css/football.jpg' %}" alt="toy" >
+  <h1>toys</h1>
+  <p class="price">$19.99</p>
+  <p><button>Add to Cart</button></p>
+</div>
+
+
+
+<div class="card">
+  <img class="card-img-top" src="{% static 'css/car.jpg' %}" alt="toy" >
+  <h1>toys</h1>
+  <p class="price">$19.99</p>
+  <p><button>Add to Cart</button></p>
+</div>
+
+
+
+
+
+<div class="card">
+  <img class="card-img-top" src="{% static 'css/toy.jpg' %}" alt="toy" >
+  <h1>toys</h1>
+  <p class="price">$19.99</p>
+  <p><button>Add to Cart</button></p>
+</div>
+
+
+<div class="card">
+  <img class="card-img-top" src="{% static 'css/toy4.jpg' %}" alt="toy" >
+  <h1>toys</h1>
+  <p class="price">$19.99</p>
+  <p><button>Add to Cart</button></p>
+</div>
+
+
+<div class="card">
+  <img class="card-img-top" src="{% static 'css/toy3.jpg' %}" alt="toy" >
+  <h1>toys</h1>
+  <p class="price">$19.99</p>
+  <p><button>Add to Cart</button></p>
+</div>
+
+
+<div class="card">
+  <img class="card-img-top" src="{% static 'css/toy2.jpg' %}" alt="toy" >
+  <h1>toys</h1>
+  <p class="price">$19.99</p>
+  <p><button>Add to Cart</button></p>
+</div>
+
+<div class="card">
+  <img class="card-img-top" src="{% static 'css/toy 5.jpg' %}" alt="toy">
+  <h1>toys</h1>
+  <p class="price">$19.99</p>
+  <p><button>Add to Cart</button></p>
+</div>
+
+<div class="card">
+  <img class="card-img-top" src="{% static 'css/toy6.jpg' %}" alt="toy">
+  <h1>toys</h1>
+  <p class="price">$19.99</p>
+  <p><button>Add to Cart</button></p>
+</div>
+
+
+</div>
+
+
 </body>
 </html>

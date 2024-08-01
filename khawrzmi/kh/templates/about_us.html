@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <title>About us</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+</head>
+<body>
+
+<header>
+ <nav class="navigation">
+ <a href="/main">Home Page</a> 
+ <a href="{% url 'logout' %}">Logout</a> 
+</nav>
+</header>
+
+<section class="features" id="features">
+    <div class="features-section">
+      <h4>Why the best ?</h4>
+      <div class="qualities">
+        <div class="quality">
+          <i class="fas fa-user-shield"></i>
+          <h3> Protection and Security</h3>
+          <p>Protect your account data from hacking</p>
+        </div>
+        
+        <div class="quality">
+          <i class="fas fa-sort-amount-up-alt"></i>
+          <h3>Featured goods</h3>
+          <p>The latest and best types</p>
+        </div>
+
+        <div class="quality">
+          <i class="fas fa-phone-square"></i>
+          <h3>Technical Support</h3>
+          <p>Technical Support 24 hours</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+</body>
+</html>

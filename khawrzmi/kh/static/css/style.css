@@ -1,12 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Condensed&family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Kufi+Arabic:wght@700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 
 *{
-    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+   
 }
+
 
 header{
 background-color:#f0f0f0 ;
@@ -52,8 +55,8 @@ section{
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: url("{% static 'img/logo.png' %}") no-repeat;
-    direction: ltr;
+    background: url('../css/back.jpg') no-repeat;
+    direction: ltr; 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -193,16 +196,19 @@ transition: 0.7s ease;
 }
 .text-primary{
 color: forestgreen;
+
 }
+
 .container h2{
 text-align: center;
 font-size: 38px;
 font-weight: 600;
 letter-spacing: 1px;
+
 }
 
 .container .row{
-    margin-top: 3rem;
+    margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(2 , 1fr); 
     column-gap: 2rem;
@@ -210,11 +216,6 @@ letter-spacing: 1px;
     box-shadow: 3px 3px 20px rgb(0, 0, 0,0.2) ;
     padding: 2rem 4rem;
     border-radius: 10px;
-    
-}
-.row img{
-    width:18em ;
-    height: 18em;
     
 }
 .container .row input ,.container .row textarea{
@@ -492,44 +493,119 @@ overflow-y: scroll;
 height: 100%;
 
 }
-.cartimg>img{
-width: 200px;
 
+.qr-q img{
+   
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    height: 50%;
+    
 }
 
-.hidden {
-    visibility: hidden;
-}
 
-.unchecked {
-    color: #fff4d0;
-    float: right;
-    cursor: pointer;
-}
-
-.unchecked:hover{
-    color: orange;
-}
-
-.checked {
-    color: orange;
-    float: right;
+section.features {
+    padding: 10rem 0;
+    background-color: #f8f7fc;
+    direction: ltr;
+  }
+  
+  section.features .features-section {
+    max-width: 1366px;
+    margin: 0 auto;
+    padding: 0 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .features-section h4 {
+    color: forestgreen;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+  
+  .features-section .qualities {
+    display: flex;
+    justify-content: space-between;
     cursor: pointer;
   }
+  
+  .features-section .qualities .quality {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 2rem;
+    max-width: 17rem;
+    border-radius: 1rem;
+    margin: 1rem 1rem;
+  }
+  
+  .features-section .qualities .quality:hover {
+    border: 2px solid forestgreen;
+  }
 
-.checked:hover{
-    color: #fff4d0;
+  .qualities .quality i {
+    font-size: 2rem;
+    color: forestgreen;
+   
+    margin-bottom: 1rem;
+  }
+  
+  .qualities .quality h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  
+  .qualities .quality p {
+    font-size: 1.2rem;
+    text-align: center;
+    color: forestgreen;
+  }
+  
+
+  .content {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 100px 200px;
 }
 
-.fa-star {
-     font-size: 25px !important;
-}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    text-align: center;
+    font-family: arial;
+    padding: 35px;
+    margin: 25px;
+    border-radius: 10px;
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .card button:hover {
+    opacity: 0.7;
+  }
 
-.favorites-container{
-    padding: 200px;
-    background-color: #C0DEC7;
-}
-
-.star {
-    float: right;
-}
+  .card-img-top{
+    width: 260px;
+    height: 250px;
+  }

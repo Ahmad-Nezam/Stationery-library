@@ -6,8 +6,10 @@ import bcrypt
 
 
 def index(request):
-    return render(request , 'welcome.html' )
+    return render(request , 'main.html' )
 
+def about_us(request):
+    return render(request , 'about_us.html')
 
 def register(request):
     if request.method == 'POST':
@@ -36,7 +38,7 @@ def login(request):
             request.session['user_id'] = users.id  
             request.session['First_name'] = users.First_name
             request.session['Last_name'] = users.Last_name   
-            return redirect('/add_pie')
+            return redirect('/main')
         else:   
             return render(request,'main.html')
 
@@ -46,3 +48,7 @@ def Stationery(request):
 
 def toys(request):
     return render(request , 'toys.html' ) 
+
+def logout(request):
+    request.session.clear()
+    return redirect('/')
