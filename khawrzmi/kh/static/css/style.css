@@ -52,7 +52,7 @@ section{
 
 .main{
     width: 100%;
-    min-height: 100vh;
+    min-height: 115vh;
     display: flex;
     align-items: center;
     background: url('../css/back.jpg') no-repeat;
@@ -69,12 +69,12 @@ section{
     font-weight: 500;
 }
 .qr-q h2{
-    padding: 7rem;
+    padding: 8rem;
 }
 .main h2 span{
 
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 25px;
     color: darkgreen;
     font-size: 3em;
     font-weight: 600;
@@ -571,7 +571,12 @@ section.features {
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 100px 200px;
+    padding: 100px 200px; 
+    background-color: #91d487 ;
+     /* url('../css/back.jpg') no-repeat; */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .card {
