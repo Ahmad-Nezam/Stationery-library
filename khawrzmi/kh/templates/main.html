@@ -21,8 +21,6 @@
  <a href="#contact">contact</a>
  <a href="{% url 'logout' %}">Logout</a> 
 </nav>
-
-   
 </header>
 
 
@@ -53,7 +51,7 @@
 
 <h2 class="title">services</h2>
  <div class="content">
-<div class="card" onclick="movetoanother()">
+<div class="card" onclick="move()">
     <div class="icon">
         <i class="fas fa-pen"></i>
     </div>
@@ -62,9 +60,6 @@
   
     </div>
 </div>
-
-
-
 
  <div class="card" onclick="move3()">
     <div class="icon">
@@ -76,12 +71,7 @@
     </div>
 </div>
     </div>
-<script>
-function move3(){
-    window.location.href="{% url 'toys' %}";
-}
 
-</script>
 </section>
 
 
@@ -112,12 +102,7 @@ function move3(){
     </div>
 
 
-    <script>
-        function movee(){
-            window.location.href = "conwh.html";
-        }
-    </script>
-
+ 
 
     </section>
 
@@ -143,5 +128,36 @@ function move3(){
 </footer>
 
 <script src="{% static 'kh.js' %}"></script>
+
+
+
+
+<script>   
+    function move(){
+        window.location.href = "{% url 'Stationery' %}"; 
+    }
+
+
+    function movee(){
+            window.location.href = "conwh.html";
+        }
+
+
+        function move3(){
+    window.location.href="{% url 'toys' %}";
+    }
+
+    
+    </script>
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

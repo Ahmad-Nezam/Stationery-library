@@ -49,6 +49,9 @@ def Stationery(request):
 def toys(request):
     return render(request , 'toys.html' ) 
 
+def purchase(request):
+    return render(request , 'purchase.html' ) 
+
 def logout(request):
     request.session.clear()
     return redirect('/')

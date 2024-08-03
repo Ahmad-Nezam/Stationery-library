@@ -614,3 +614,32 @@ section.features {
     width: 260px;
     height: 250px;
   }
+
+
+.purchase{
+    background-color: lightgrey;
+    width: 900px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 90px;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    
+  }
+  .cardbutton2 {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 150px;
+    font-size: 18px;
+    
+  }
+  
+  .cardbutton2:hover {
+    opacity: 0.7;
+  }

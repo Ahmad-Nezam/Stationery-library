@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+        <a href="/main">Home Page</a> 
+        <a href="{% url 'logout' %}">Logout</a> 
+       </nav>
+    </header>
+
+    <section class="purchase">
+       <div >                            
+            <form action="{% url 'purchase' %}">
+                <h1>your Purchase is : </h1><br><br>
+                <input class="cardbutton2" type="submit" value="Yes">
+            </form> <br>
+            <a href="/main"><input class="cardbutton2" type="submit" value="No"></a>
+       </div>
+    </section>
+</body>
+</html>
