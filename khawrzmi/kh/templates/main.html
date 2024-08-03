@@ -75,13 +75,41 @@
 </section>
 
 
+<section class="cards" id="services">
+    <h2 class="title">You Order</h2>
+    <div class="content">
+        <div class="cardd">
+
+            <table>
+                
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>your order</th>
+                </tr>
+                
+                <tr>
+                 
+                  <td></td>
+                  <td></td>
+                  <td></td>       
+                </tr>
+                
+              </table>
+    
+        </div>
+    </div>
+</section>
+
+
+
 
 
 <section class="card-contact" id="contact">
 
 <h2 class="title">Contact us</h2> 
 <div class="content">
-    <div class="card" onclick="movee()" >
+    <div class="card"  >
         <div class="icon">
             <i class="fas fa-phone"></i>
         </div>
@@ -136,12 +164,6 @@
     function move(){
         window.location.href = "{% url 'Stationery' %}"; 
     }
-
-
-    function movee(){
-            window.location.href = "conwh.html";
-        }
-
 
         function move3(){
     window.location.href="{% url 'toys' %}";

@@ -621,12 +621,11 @@ section.features {
     width: 900px;
     border: 15px solid green;
     padding: 50px;
-    margin: 90px;
-    display: flex;
-    justify-content: center;    
-    align-items: center;
+    margin: 130px 0px 0px 300px;
     
+
   }
+
   .cardbutton2 {
     border: none;
     outline: 0;
@@ -643,3 +642,29 @@ section.features {
   .cardbutton2:hover {
     opacity: 0.7;
   }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  .cardd{
+    background-color: white;
+    width: 21.25em;
+    box-shadow: 0 5px 25px rgba(1 1 1 / 15%);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 15px;
+    transition: 0.7s ease;
+    }
+  
