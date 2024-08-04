@@ -25,20 +25,33 @@
 <div class="content">
 
 
-  {% for product in my_product %}
+  <!-- {% for product in my_product %}
 <div class="card"> 
-   <form action="{% url 'Stationery' %}" method="post"> 
-   {% csrf_token %} 
+   <form action="{% url 'Stationery' %}" method="POST"> 
+    {% csrf_token %} 
     <img class="card-img-top" src="{{ product.img.url }}" alt="{{ product.name_product }}">
     <h1>{{ product.name_product }}</h1> 
-    <!-- <p name="price" class="price">${{ product.price }}</p>  -->
-    <input class="price" name="num_product" type="hidden"> ${{ product.price }} <br><br>
+    <input class="price" name="num_product" type="hidden" value="{{product.price}}"> ${{ product.price }} <br><br>
     <input name="num_product" type="number"> {{product.num_product}} <br><br>
     <p><a href="/purchase"><button>Add to Cart</button></a></p>
 </div> 
   </form>
-  {% endfor %}
+  {% endfor %} -->
 
+  {% for product in my_product %}
+  <div class="card"> 
+      <form action="{% url 'Stationery' %}" method="POST"> 
+          {% csrf_token %} 
+          <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name_product }}">
+          <h1>{{ product.name_product }}</h1> 
+          <input type="hidden" name="price" value="{{ product.price }}">
+          <input type="hidden" name="product_name" value="{{ product.name_product }}">
+          <p class="price">${{ product.price }}</p> 
+          <input name="num_product" type="number" min="1" value="1"> <br><br>
+          <button type="submit">Add to Cart</button> 
+      </form>
+  </div> 
+  {% endfor %}
 </div>
 
 
