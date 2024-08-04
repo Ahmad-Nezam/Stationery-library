@@ -44,13 +44,32 @@ def login(request):
 
 
 def Stationery(request):
-    return render(request , 'Stationery.html' ) 
+    my_product = product.objects.all()
+    if request.method == 'POST': 
+        price = request.POST['price']
+        num_product = request.POST['num_product']
+        total = price * num_product
+        product.objects.create(num_product = num_product , total = total) 
+        request.session['total'] = total
+        request.session['num_product'] = num_product
+        request.session['price'] = price 
+        return redirect('/purchase')
+    return render(request , 'Stationery.html' , {'my_product' : my_product}) 
 
 def toys(request):
     return render(request , 'toys.html' ) 
 
 def purchase(request):
-    return render(request , 'purchase.html' ) 
+    if request.method == 'POST': 
+        price =  request.session.get('price')
+        num_product = request.session.get('num_product')
+        total = request.session.get('total')
+        # context = {
+        #     'price' : price,
+        #     'num_product' : num_product,
+        #     'total' : total
+        # }
+    return render(request , 'purchase.html',{'price' : price , 'num_product' :num_product , 'total' :total} ) 
 
 
 def products(request):

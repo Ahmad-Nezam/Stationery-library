@@ -20,12 +20,15 @@
     </header>
 
     
-    <h1>your Purchase is : </h1><br><br>
+  
+<h1>q</h1>
     <div class="purchase">                             
         <form action="{% url 'purchase' %}">
-            <h1>your Purchase is : </h1><br><br>
+            <h1>Are you sure you want {{num_product}} </h1>
+            <h2>the total charge is {{total}}</h2>
+            <h3>the price is {{price}}</h3>
             <button class="cardbutton2">Yes</button>
-        </form> <br>
+        </form> <br> 
         <a href="/main"><input class="cardbutton2" type="submit" value="No"></a>
     </div>
    

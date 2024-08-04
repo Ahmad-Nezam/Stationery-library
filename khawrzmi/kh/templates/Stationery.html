@@ -27,12 +27,16 @@
 
   {% for product in my_product %}
 <div class="card"> 
+   <form action="{% url 'Stationery' %}" method="post"> 
+   {% csrf_token %} 
     <img class="card-img-top" src="{{ product.img.url }}" alt="{{ product.name_product }}">
     <h1>{{ product.name_product }}</h1> 
-    <p class="price">${{ product.price }}</p>
-    <input type="number"> {{product.num_product}} <br><br>
+    <!-- <p name="price" class="price">${{ product.price }}</p>  -->
+    <input class="price" name="num_product" type="hidden"> ${{ product.price }} <br><br>
+    <input name="num_product" type="number"> {{product.num_product}} <br><br>
     <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
+</div> 
+  </form>
   {% endfor %}
 
 </div>

@@ -47,6 +47,7 @@ class product(models.Model):
     image = models.ImageField(upload_to='img')
     created_at = models.DateTimeField(auto_now_add=True)
     num_product = models.IntegerField() 
+    total = models.FloatField()
     pro = models.ManyToManyField(user,related_name='my_product' )
 
 
