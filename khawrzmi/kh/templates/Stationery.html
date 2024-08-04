@@ -24,81 +24,16 @@
 
 <div class="content">
 
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/file box.jpg' %}" alt="toy" >
-  <h1>file box</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
+
+  {% for product in my_product %}
+<div class="card"> 
+    <img class="card-img-top" src="{{ product.img.url }}" alt="{{ product.name_product }}">
+    <h1>{{ product.name_product }}</h1> 
+    <p class="price">${{ product.price }}</p>
+    <input type="number"> {{product.num_product}} <br><br>
+    <p><a href="/purchase"><button>Add to Cart</button></a></p>
 </div>
-
-
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/notebooks.jpg' %}" alt="toy" >
-  <h1>notebooks</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
-
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/file.jpg' %}" alt="toy" >
-  <h1>file</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
-
-
-
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/pen.jpg' %}" alt="toy" >
-  <h1>pens</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/pen2.jpg' %}" alt="toy" >
-  <h1>pen</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/rubber.jpg' %}" alt="toy" >
-  <h1>rubber</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/scissors.jpg' %}" alt="toy" >
-  <h1>scissors</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/pencils.jpg' %}" alt="toy">
-  <h1>pencils</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/pencil color.jpg' %}" alt="toy">
-  <h1>pencil color</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
-
+  {% endfor %}
 
 </div>
 

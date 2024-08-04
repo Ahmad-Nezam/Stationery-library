@@ -1,6 +1,6 @@
 from django.shortcuts import render ,redirect
 from . import models
-from .models import user 
+from .models import user ,product
 from django.contrib import messages 
 import bcrypt
 
