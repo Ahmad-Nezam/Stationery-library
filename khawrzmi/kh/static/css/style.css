@@ -587,6 +587,7 @@ section.features {
     padding: 35px;
     margin: 25px;
     border-radius: 10px;
+    
   }
   
   .price {
@@ -613,6 +614,8 @@ section.features {
   .card-img-top{
     width: 260px;
     height: 250px;
+    
+    
   }
 
 

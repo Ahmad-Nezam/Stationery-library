@@ -43,9 +43,10 @@ class user(models.Model):
 class product(models.Model):
     name_product = models.CharField(max_length=30)
     price = models.FloatField()
-    image = models.ImageField()
+    image = models.ImageField(upload_to='css/')
+    created_at = models.DateTimeField(auto_now_add=True)
     num_product = models.IntegerField() 
-
+    pro = models.ManyToManyField(user,related_name='my_product' )
 
 def create_user(request , pw_hash):
     First_name = request['First_name']

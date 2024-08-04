@@ -12,8 +12,8 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='product',
-            fields=[
+            name='product', 
+            fields=[ 
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name_product', models.CharField(max_length=30)),
                 ('price', models.FloatField()),

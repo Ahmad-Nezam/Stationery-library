@@ -52,6 +52,13 @@ def toys(request):
 def purchase(request):
     return render(request , 'purchase.html' ) 
 
+
+def products(request):
+    my_product = product.objects.all() 
+    return render(request , 'Stationery.html' , {'my_product' : my_product})
+
+
+
 def logout(request):
     request.session.clear()
     return redirect('/')
