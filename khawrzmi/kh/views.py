@@ -46,12 +46,12 @@ def login(request):
 
 
 def Stationery(request): 
-    my_product = product.objects.filter(id__gte=1, id__lte=9)
+    my_product = models.get_all()
     if request.method == 'POST':
         price = float(request.POST.get("price", 0))
         num_product = int(request.POST.get('num_product', 0))
         product_name  = request.POST.get('product_name', 'Unknown Product')
-
+        image_url = request.POST.get('image_url')
         total = price * num_product
 
       
@@ -59,7 +59,9 @@ def Stationery(request):
         request.session['num_product'] = num_product
         request.session['price'] = price
         request.session['product_name'] = product_name 
-
+        request.session['image_url'] = image_url
+        
+        
         return redirect('/purchase') 
     return render(request, 'Stationery.html', {'my_product': my_product})
 
@@ -78,6 +80,7 @@ def toys(request):
         request.session['num_product'] = num_product
         request.session['price'] = price
         request.session['product_name'] = product_name 
+        
 
         return redirect('/purchase') 
     return render(request, 'Stationery.html', {'my_product': my_product})
@@ -88,8 +91,15 @@ def purchase(request):
         num_product = request.session.get('num_product', None)
         total = request.session.get('total', None)
         product_name  = request.session.get('product_name', None)
-    
-        return render(request, 'purchase.html', {'price' : price, 'num_product': num_product, 'total': total, 'product_name' : product_name })
+        context = {
+        'price': price,
+        'num_product': num_product,
+        'total': total,
+        'product_name': product_name,
+        
+    }
+
+        return render(request, 'purchase.html',context)
 
 
 def order(request):
@@ -97,8 +107,15 @@ def order(request):
     num_product = request.session.get('num_product', None)
     total = request.session.get('total', None)
     name_product  = request.session.get('product_name', None) 
-   
-    return render(request, 'main.html', {'price': price, 'num_product': num_product, 'total': total, 'product_name' : name_product })
+    
+    context = {
+        'price': price,
+        'num_product': num_product,
+        'total': total,
+        'product_name': name_product,
+        
+    }
+    return render(request, 'main.html', context)
 
 
 def logout(request):

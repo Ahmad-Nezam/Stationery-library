@@ -27,20 +27,21 @@
 
 
   {% for product in my_product %}
-  <div class="card"> 
-      <form action="{% url 'Stationery' %}" method="POST"> 
-          {% csrf_token %} 
+  <div class="card">
+      <form action="{% url 'Stationery' %}" method="POST">
+          {% csrf_token %}
           <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name_product }}">
-          <h1>{{ product.name_product }}</h1> 
+          <h1>{{ product.name_product }}</h1>
           <input type="hidden" name="price" value="{{ product.price }}">
           <input type="hidden" name="product_name" value="{{ product.name_product }}">
-          <p class="price">${{ product.price }}</p> 
+          <input type="hidden" name="image_url" value="{{ product.image.url }}">
+          <p class="price">${{ product.price }}</p>
           <input name="num_product" type="number" min="1" value="1"> <br><br>
-          <button type="submit">Add to Cart</button> 
+          <button type="submit">Add to Cart</button>
       </form>
-  </div> 
+  </div>
   {% endfor %}
-</div>
+  
 
 
 </body>
