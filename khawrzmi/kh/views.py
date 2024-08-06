@@ -46,7 +46,7 @@ def login(request):
 
 
 def Stationery(request): 
-    my_product = models.get_all()
+    my_product = models.get_sta()
     if request.method == 'POST':
         price = float(request.POST.get("price", 0))
         num_product = int(request.POST.get('num_product', 0))
@@ -67,11 +67,12 @@ def Stationery(request):
 
 
 def toys(request):
-    my_product = product.objects.filter(id__gte=1, id__lte=6)
+    my_product = models.get_toy()
     if request.method == 'POST':
         price = float(request.POST.get("price", 0))
         num_product = int(request.POST.get('num_product', 0))
         product_name  = request.POST.get('product_name', 'Unknown Product')
+        
 
         total = price * num_product
 
@@ -91,14 +92,15 @@ def purchase(request):
         num_product = request.session.get('num_product', None)
         total = request.session.get('total', None)
         product_name  = request.session.get('product_name', None)
+        image = request.session.get('image_url' , None )  
         context = {
         'price': price,
         'num_product': num_product,
         'total': total,
         'product_name': product_name,
-        
+        'image_url' : image
     }
-
+        # product.objects.create(price = price , num_product = num_product , total = total , product_name = product_name , image = image)
         return render(request, 'purchase.html',context)
 
 
@@ -108,13 +110,18 @@ def order(request):
     total = request.session.get('total', None)
     name_product  = request.session.get('product_name', None) 
     
+    request.session['total'] = total
+    request.session['num_product'] = num_product
+    request.session['price'] = price
+    request.session['product_name'] = name_product 
+
     context = {
         'price': price,
         'num_product': num_product,
         'total': total,
         'product_name': name_product,
-        
     }
+    
     return render(request, 'main.html', context)
 
 
