@@ -67,12 +67,20 @@ def toys(request):
 
 
 def purchase(request):
+        price = request.session.get('price' , None)
+        num_product = request.session.get('num_product', None)
+        total = request.session.get('total', None)
+        product_name  = request.session.get('product_name', None)
+    
+        return render(request, 'purchase.html', {'price' : price, 'num_product': num_product, 'total': total, 'product_name' : product_name })
+
+
+def order(request):
     price = request.session.get('price', None)
     num_product = request.session.get('num_product', None)
     total = request.session.get('total', None)
-    product_name  = request.session.get('product_name', None)
-    
-    return render(request, 'purchase.html', {'price': price, 'num_product': num_product, 'total': total, 'product_name' : product_name })
+    product_name  = request.session.get('product_name', None) 
+    return render(request, 'main.html', {'price': price, 'num_product': num_product, 'total': total, 'product_name' : product_name })
 
 
 def logout(request):
