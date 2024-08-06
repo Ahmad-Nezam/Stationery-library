@@ -74,11 +74,6 @@ def purchase(request):
     
     return render(request, 'purchase.html', {'price': price, 'num_product': num_product, 'total': total, 'product_name' : product_name })
 
-def products(request):
-    my_product = product.objects.all() 
-    return render(request , 'Stationery.html' , {'my_product' : my_product})
-
-
 
 def logout(request):
     request.session.clear()

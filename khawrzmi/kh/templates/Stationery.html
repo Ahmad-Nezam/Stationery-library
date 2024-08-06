@@ -25,18 +25,6 @@
 <div class="content">
 
 
-  <!-- {% for product in my_product %}
-<div class="card"> 
-   <form action="{% url 'Stationery' %}" method="POST"> 
-    {% csrf_token %} 
-    <img class="card-img-top" src="{{ product.img.url }}" alt="{{ product.name_product }}">
-    <h1>{{ product.name_product }}</h1> 
-    <input class="price" name="num_product" type="hidden" value="{{product.price}}"> ${{ product.price }} <br><br>
-    <input name="num_product" type="number"> {{product.num_product}} <br><br>
-    <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div> 
-  </form>
-  {% endfor %} -->
 
   {% for product in my_product %}
   <div class="card"> 
