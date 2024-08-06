@@ -58,3 +58,10 @@ def create_user(request , pw_hash):
     password = request['password']
     conf_password = request['conf_password']
     return user.objects.create(First_name = First_name , Last_name = Last_name , email = email ,  conf_password = pw_hash , password = pw_hash)
+
+def get_all():
+    return product.objects.all() 
+
+def deletee(id):
+    a = product.objects.get(id = id)
+    a.delete()

@@ -25,80 +25,22 @@
 
 <div class="content">
 
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/toy 5.jpg' %}" alt="toy" >
-  <h1>toys</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
 
 
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/football.jpg' %}" alt="toy" >
-  <h1>football</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
-
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/car.jpg' %}" alt="toy" >
-  <h1>car</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
-
-
-
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/toy.jpg' %}" alt="toy" >
-  <h1>toy</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/toy4.jpg' %}" alt="toy" >
-  <h1>toys</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/toy3.jpg' %}" alt="toy" >
-  <h1>toys</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/toy2.jpg' %}" alt="toy" >
-  <h1>toys</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/toy 5.jpg' %}" alt="toy">
-  <h1>toys</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
-<div class="card">
-  <img class="card-img-top" src="{% static 'css/toy6.jpg' %}" alt="toy">
-  <h1>toys</h1>
-  <p class="price">$19.99</p>
-  <p><a href="/purchase"><button>Add to Cart</button></a></p>
-</div>
-
+  {% for product in my_product %}
+  <div class="card"> 
+      <form action="{% url 'toys' %}" method="POST"> 
+          {% csrf_token %} 
+          <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name_product }}">
+          <h1>{{ product.name_product }}</h1> 
+          <input type="hidden" name="price" value="{{ product.price }}">
+          <input type="hidden" name="product_name" value="{{ product.name_product }}">
+          <p class="price">${{ product.price }}</p> 
+          <input name="num_product" type="number" min="1" value="1"> <br><br>
+          <button type="submit">Add to Cart</button> 
+      </form>
+  </div> 
+  {% endfor %} 
 
 </div>
 

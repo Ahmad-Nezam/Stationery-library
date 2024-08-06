@@ -6,9 +6,11 @@ import bcrypt
 
 
 def index(request):
+   
     return render(request , 'main.html' )
 
 def about_us(request):
+  
     return render(request , 'about_us.html')
 
 def register(request):
@@ -43,8 +45,8 @@ def login(request):
             return render(request,'main.html')
 
 
-def Stationery(request):
-    my_product = product.objects.all()
+def Stationery(request): 
+    my_product = product.objects.filter(id__gte=1, id__lte=9)
     if request.method == 'POST':
         price = float(request.POST.get("price", 0))
         num_product = int(request.POST.get('num_product', 0))
@@ -63,7 +65,22 @@ def Stationery(request):
 
 
 def toys(request):
-    return render(request , 'toys.html' ) 
+    my_product = product.objects.filter(id__gte=1, id__lte=6)
+    if request.method == 'POST':
+        price = float(request.POST.get("price", 0))
+        num_product = int(request.POST.get('num_product', 0))
+        product_name  = request.POST.get('product_name', 'Unknown Product')
+
+        total = price * num_product
+
+      
+        request.session['total'] = total
+        request.session['num_product'] = num_product
+        request.session['price'] = price
+        request.session['product_name'] = product_name 
+
+        return redirect('/purchase') 
+    return render(request, 'Stationery.html', {'my_product': my_product})
 
 
 def purchase(request):
@@ -79,10 +96,11 @@ def order(request):
     price = request.session.get('price', None)
     num_product = request.session.get('num_product', None)
     total = request.session.get('total', None)
-    product_name  = request.session.get('product_name', None) 
-    return render(request, 'main.html', {'price': price, 'num_product': num_product, 'total': total, 'product_name' : product_name })
+    name_product  = request.session.get('product_name', None) 
+   
+    return render(request, 'main.html', {'price': price, 'num_product': num_product, 'total': total, 'product_name' : name_product })
 
 
 def logout(request):
-    request.session.clear()
-    return redirect('/')
+    request.session.flush()
+    return redirect('/') 
