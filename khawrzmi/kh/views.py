@@ -46,83 +46,82 @@ def login(request):
 
 
 def Stationery(request): 
-    my_product = models.get_sta()
+    my_product = models.get_sta() 
     if request.method == 'POST':
         price = float(request.POST.get("price", 0))
         num_product = int(request.POST.get('num_product', 0))
-        product_name  = request.POST.get('product_name', 'Unknown Product')
-        image_url = request.POST.get('image_url')
+        product_name = request.POST.get('product_name', 'Unknown Product')
+      
         total = price * num_product
 
-      
-        request.session['total'] = total
-        request.session['num_product'] = num_product
-        request.session['price'] = price
-        request.session['product_name'] = product_name 
-        request.session['image_url'] = image_url
+       
+        purchases = request.session.get('purchases', [])
         
+       
+        purchase = {
+            'product_name': product_name,
+            'num_product': num_product,
+            'price': price,
+            'total': total,
+           
+        }
+        purchases.append(purchase)
         
-        return redirect('/purchase') 
+       
+        request.session['purchases'] = purchases
+        
+        return redirect('/purchase')
+    
     return render(request, 'Stationery.html', {'my_product': my_product})
 
 
 def toys(request):
-    my_product = models.get_toy()
+    my_product = models.get_toy() 
     if request.method == 'POST':
         price = float(request.POST.get("price", 0))
         num_product = int(request.POST.get('num_product', 0))
-        product_name  = request.POST.get('product_name', 'Unknown Product')
-        
-
+        product_name = request.POST.get('product_name', 'Unknown Product')
+      
         total = price * num_product
 
-      
-        request.session['total'] = total
-        request.session['num_product'] = num_product
-        request.session['price'] = price
-        request.session['product_name'] = product_name 
+       
+        purchases = request.session.get('purchases', [])
         
-
-        return redirect('/purchase') 
+       
+        purchase = {
+            'product_name': product_name,
+            'num_product': num_product,
+            'price': price,
+            'total': total,
+           
+        }
+        purchases.append(purchase)
+        
+       
+        request.session['purchases'] = purchases
+        
+        return redirect('/purchase')
     return render(request, 'Stationery.html', {'my_product': my_product})
 
 
 def purchase(request):
-        price = request.session.get('price' , None)
-        num_product = request.session.get('num_product', None)
-        total = request.session.get('total', None)
-        product_name  = request.session.get('product_name', None)
-        image = request.session.get('image_url' , None )  
-        context = {
-        'price': price,
-        'num_product': num_product,
-        'total': total,
-        'product_name': product_name,
-        'image_url' : image
-    }
-        # product.objects.create(price = price , num_product = num_product , total = total , product_name = product_name , image = image)
-        return render(request, 'purchase.html',context)
-
-
-def order(request):
-    price = request.session.get('price', None)
-    num_product = request.session.get('num_product', None)
-    total = request.session.get('total', None)
-    name_product  = request.session.get('product_name', None) 
+    purchases = request.session.get('purchases', [])
     
-    request.session['total'] = total
-    request.session['num_product'] = num_product
-    request.session['price'] = price
-    request.session['product_name'] = name_product 
+    # Use the last purchase for display (for the "Are you sure" page)
+    last_purchase = purchases[-1] if purchases else None
 
     context = {
-        'price': price,
-        'num_product': num_product,
-        'total': total,
-        'product_name': name_product,
+        'purchase': last_purchase
     }
     
-    return render(request, 'main.html', context)
+    return render(request, 'purchase.html', context)
+
+'purchase.html'
+
+def order(request):
+  purchases = request.session.get('purchases', [])
+  return render(request, 'main.html', {'purchases': purchases})
+    
 
 
 def logout(request):

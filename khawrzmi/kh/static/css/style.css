@@ -618,33 +618,42 @@ section.features {
     
   }
 
+  .purchase {
+    background-color: #f8f9fa; 
+    width: 700px;
+    border: 5px solid #28a745; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 30px; 
+    margin: 100px auto; 
+    text-align: center; 
+}
 
-.purchase{
-    background-color: lightgrey;
-    width: 900px;
-    border: 15px solid green;
-    padding: 50px;
-    margin: 130px 0px 0px 300px;
-    
-
-  }
-
-  .cardbutton2 {
+.cardbutton2 {
     border: none;
     outline: 0;
-    padding: 12px;
+    padding: 12px 20px; 
     color: white;
-    background-color: #000;
+    background-color: #007bff; 
     text-align: center;
     cursor: pointer;
-    width: 150px;
+    width: auto; 
     font-size: 18px;
-    
-  }
-  
-  .cardbutton2:hover {
-    opacity: 0.7;
-  }
+    border-radius: 5px; 
+    transition: background-color 0.3s, opacity 0.3s; 
+    margin: 10px; 
+}
+
+.cardbutton2:hover {
+    background-color: #0056b3;
+    opacity: 0.9;
+}
+
+.form2 {
+    display: flex; 
+    justify-content: center;
+    gap: 10px;
+}
 
   table {
     font-family: arial, sans-serif;

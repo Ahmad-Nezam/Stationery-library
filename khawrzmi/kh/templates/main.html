@@ -89,13 +89,14 @@
                   <th>Total</th>
                 </tr>
                 
+                {% for purchase in purchases %}
                 <tr>
-                 
-                  <td>{{product_name}}</td>
-                  <td>{{num_product}} </td>
-                  <td>{{total}}</td>  
-                 
+                    <td>{{ purchase.product_name }}</td>
+                    <td>{{ purchase.num_product }}</td>
+                    <td>{{ purchase.price }}</td>
+                    
                 </tr>
+                {% endfor %}
                 
               </table>
     

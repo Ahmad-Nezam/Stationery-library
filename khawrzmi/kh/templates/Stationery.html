@@ -38,41 +38,12 @@
           <input type="hidden" name="image_url" value="{{ product.image.url }}">
           <p class="price">${{ product.price }}</p>
           <input name="num_product" type="number" min="1" value="1"> <br><br>
-          <button type="submit">Add to Cart</button>
+          <button type="submit">Buy</button>
       </form>
   </div>
   {% endfor %}
   
-  <script>
-    $(document).ready(function() {
-        $('.add-to-cart-form').on('submit', function(e) {
-            e.preventDefault();
-            var form = $(this);
-            
-            $.ajax({
-                type: 'POST',
-                url: '{% url "Stationery" %}',
-                data: form.serialize(),
-                success: function(response) {
-                    alert(response.message);
-                    updateCartTable(response.cart);
-                },
-                error: function(response) {
-                    alert('Error adding product to cart');
-                }
-            });
-        });
-
-        function updateCartTable(cart) {
-            var cartTable = $('table');
-            cartTable.find('tr:gt(0)').remove(); // Clear existing rows except header
-
-            $.each(cart, function(index, item) {
-                cartTable.append('<tr><td>' + item.product_name + '</td><td>' + item.num_product + '</td><td>' + item.total + '</td></tr>');
-            });
-        }
-    });
-    </script>
+  ` 
 
 </body>
 </html>
