@@ -52,21 +52,21 @@
 
 <h2 class="title">services</h2>
  <div class="content">
-<div class="card" onclick="move()">
-    <div class="icon">
+<div class="card2" onclick="move()">
+    <div class="icon2">
         <i class="fas fa-pen"></i>
     </div>
-    <div class="info" >
+    <div class="info2" >
         <h3>Stationery</h3>
   
     </div>
 </div>
 
- <div class="card" onclick="move3()">
-    <div class="icon">
+ <div class="card2" onclick="move3()">
+    <div class="icon2">
         <i class="fa fa-gamepad"></i>
     </div>
-    <div class="info">
+    <div class="info2">
         <h3>Toys</h3>
 
     </div>
@@ -84,9 +84,11 @@
             <table>
                 
                 <tr>
-                  <th>Name of the product</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Actions</th>
                 </tr>
                 
                 {% for purchase in purchases %}
@@ -94,7 +96,10 @@
                     <td>{{ purchase.product_name }}</td>
                     <td>{{ purchase.num_product }}</td>
                     <td>{{ purchase.price }}</td>
-                    
+                    <td>{{ purchase.total }}</td>
+                    <td>
+                        <a href="#" class="delete-link" data-index="{{ forloop.counter0 }}">Delete</a>
+                    </td>
                 </tr>
                 {% endfor %}
                 
@@ -102,6 +107,30 @@
     
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.delete-link').on('click', function(e){
+                e.preventDefault();
+                var row = $(this).closest('tr');
+                var index = $(this).data('index');
+
+                $.ajax({
+                    url: '{% url "delete_purchase" 0 %}'.replace('0', index), 
+                    type: 'POST',
+                    data: {
+                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    }, 
+                    success: function(response) {
+                        row.remove(); 
+                    }, 
+                    error: function(xhr, errmsg, err) {
+                        console.error('Error:', errmsg);
+                    } 
+                }); 
+            });
+        });
+    </script>
 </section>
 
 
@@ -112,20 +141,20 @@
 
 <h2 class="title">Contact us</h2> 
 <div class="content">
-    <div class="card"  >
-        <div class="icon">
+    <div class="card2"  >
+        <div class="icon2">
             <i class="fas fa-phone"></i>
         </div>
-        <div class="info" >
+        <div class="info2" >
             <h3>Phone</h3>
           <strong>02-2345024</strong>
         </div>
     </div>
-    <div class="card">
-        <div class="icon">
+    <div class="card2">
+        <div class="icon2">
             <i class="fas fa-envelope"></i>
         </div>
-        <div class="info">
+        <div class="info2">
             <h3>Email</h3>
            <strong>ahmad628go@gmail.com</strong>
         </div>

@@ -28,13 +28,13 @@
     <h2>You ordered {{ purchase.num_product }}</h2>
     <h2>The price is {{ purchase.price }}</h2>
     <h2>The total charge is {{ purchase.total }}</h2>
-    <form class="form2" action="{% url 'order' %}" method="post">
+    <form action="{% url 'order' %}" method="post">
         {% csrf_token %}
         <button type="submit" class="cardbutton2">Yes</button>
-        <a href="/main" class="cardbutton2">No</a>
     </form>
+    <a href="/main" class="cardbutton2">No</a>
 </div>
-{% else %} 
+{% else %}
 <h1>No purchase details available.</h1>
 {% endif %}
    
