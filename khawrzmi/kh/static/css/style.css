@@ -529,82 +529,6 @@ section.features .features-section {
   line-height: 1.5; 
 }
 
-  
-
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background-color: #C0DEC7;
-    padding: 20px;
-    text-align: center;
-}
-
-.modal-content span {
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    font-size: 50px;
-    cursor: pointer; 
-    color: white;
-    font-weight: bolder;
-    z-index: 100;
-
-}
-
-.modal1 {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.modal-content1 {
-    background-color: #C0DEC7;
-    padding: 20px;
-    text-align: center;
-    width: 70vw; 
-    max-width: 800px; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    position: relative;
-}
-.modal-content1 span {
-    position: absolute;
-    top: 2px;
-    right: 20px;
-    font-size: 50px;
-    cursor: pointer; 
-    color: white;
-    font-weight: bolder;
-    z-index: 100;
-   
-}
-
-
-.popup-image {
-    max-width: 100%;
-    max-height: 70vh;
-    border-radius: 8px;
-    margin: 20px 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
 
 .arrow-container {
     display: flex;
@@ -623,12 +547,6 @@ section.features .features-section {
 .arrow:hover {
     color: darkgreen;
 }
-
-
-
-
-
-
 
 
   @media (max-width:1023px){
@@ -874,10 +792,6 @@ section.features {
   background-color: #b71c1c;
 }
 
-
-
-
-
   table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -902,7 +816,3 @@ tr:nth-child(even) {
     margin: 15px;
 }
   
-
-
-
-

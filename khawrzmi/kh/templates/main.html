@@ -134,6 +134,11 @@
             });
         });
     </script>
+    <script>
+        var stationeryUrl = "{% url 'Stationery' %}";
+        var toysUrl = "{% url 'toys' %}";
+    </script>
+    <script src="{% static 'kh.js' %}"></script>
 </section>
 
 
@@ -190,22 +195,10 @@
 
 </footer>
 
-<script src="{% static 'kh.js' %}"></script>
 
 
 
 
-<script>   
-    function move(){
-        window.location.href = "{% url 'Stationery' %}"; 
-    }
-
-        function move3(){
-    window.location.href="{% url 'toys' %}";
-    }
-
-    
-    </script>
 
 
 

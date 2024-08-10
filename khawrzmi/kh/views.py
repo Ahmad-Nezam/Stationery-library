@@ -1,16 +1,16 @@
 from django.shortcuts import render ,redirect
 from . import models
-from .models import user ,product
 from django.contrib import messages 
 from django.http import JsonResponse
+from .models import user , product
 import bcrypt
 
 
 def index(request):
-    First_name = request.session['First_name']
-    Last_name = request.session['Last_name']
+    First_name = request.session.get('First_name')
+    Last_name = request.session.get('Last_name')
     purchases = request.session.get('purchases', [])
-    context = {
+    context = { 
         'First_name' : First_name,
         'Last_name' : Last_name ,
         'purchases': purchases
@@ -37,17 +37,27 @@ def register(request):
             return redirect('/')
     return render(request , 'login.html')
 
+
 def login(request):
     if request.method == 'POST':
-        email = request.POST['email'] 
-        password = request.POST['password']        
-        users =  user.objects.filter(email = email , password = password).first()
-        if users and bcrypt.checkpw(request.POST['password'].encode(), users.password.encode()):
+        email = request.POST['email']
+        password = request.POST['password']
+        
+       
+        users = models.user.objects.filter(email=email).first()
+        
+    
+        if users and bcrypt.checkpw(password.encode(), users.password.encode()):
             request.session['First_name'] = users.First_name
             request.session['Last_name'] = users.Last_name   
-            return redirect('/main')
+            First_name = request.session.get('First_name')
+            Last_name = request.session.get('Last_name')
+            return render(request, 'main.html' , {'First_name' : First_name , 'Last_name' : Last_name})
         else:   
-         return render(request,'main.html')
+            messages.error(request, 'Invalid email or password')
+            return redirect('/')
+    return render(request, 'login.html')
+
 
 
 def Stationery(request): 
