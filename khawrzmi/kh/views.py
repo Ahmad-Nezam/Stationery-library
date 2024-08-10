@@ -7,14 +7,17 @@ import bcrypt
 
 
 def index(request):
+    First_name = request.session['First_name']
+    Last_name = request.session['Last_name']
     purchases = request.session.get('purchases', [])
     context = {
+        'First_name' : First_name,
+        'Last_name' : Last_name ,
         'purchases': purchases
     }
-    return render(request, 'main.html', context)
+    return render(request, 'main.html', context )
 
 def about_us(request):
-  
     return render(request , 'about_us.html')
 
 def register(request):
@@ -27,26 +30,24 @@ def register(request):
         else:    
             pw_hash = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt()).decode()
             print(pw_hash) 
-            users = models.create_user(request.POST , pw_hash = pw_hash ) 
-            messages.success(request , 'the show user successfuly created !!')
-            request.session['user_id'] = users.id
+            users = models.create_user(request.POST , pw_hash = pw_hash) 
+            messages.success(request , 'the user successfuly created !!')
             request.session['First_name'] = users.First_name
             request.session['Last_name'] = users.Last_name 
             return redirect('/')
-    return render(request , 'login_register.html')
+    return render(request , 'login.html')
 
 def login(request):
     if request.method == 'POST':
-        email = request.POST['email']
+        email = request.POST['email'] 
         password = request.POST['password']        
-        users =  user.objects.filter(email = email).first()
+        users =  user.objects.filter(email = email , password = password).first()
         if users and bcrypt.checkpw(request.POST['password'].encode(), users.password.encode()):
-            request.session['user_id'] = users.id  
             request.session['First_name'] = users.First_name
             request.session['Last_name'] = users.Last_name   
             return redirect('/main')
         else:   
-            return render(request,'main.html')
+         return render(request,'main.html')
 
 
 def Stationery(request): 
